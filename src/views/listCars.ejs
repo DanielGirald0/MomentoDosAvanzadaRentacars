@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Autos</title>
+</head>
+<body>
+
+  <h1>Agregar Auto</h1>
+  <form action="/cars/add" method="post">
+    <label for="platenumber">Placa:</label>
+    <input type="text" id="platenumber" name="platenumber" required>
+    <br>
+    <label for="brand">Marca:</label>
+    <input type="text" id="brand" name="brand" required>
+    <br>
+    <label for="state">Estado:</label>
+    <input type="text" id="state" name="state" required>
+    <br>
+    <button type="submit">Agregar Auto</button>
+
+  </form>
+
+  <h1>Lista de Autos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Placa</th>
+        <th>Marca</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cars.forEach(car => { %>
+        <tr>
+          <td><%= car.platenumber %></td>
+          <td><%= car.brand %></td>
+          <td><%= car.state %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
