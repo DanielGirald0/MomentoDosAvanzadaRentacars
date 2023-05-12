@@ -12,7 +12,6 @@ router.post('/add', async (req, res) => {
   const { platenumber, brand, state } = req.body;
 
   try {
-    
     const newCar = new Car({ platenumber, brand, state });
     await newCar.save();
     res.redirect('/cars/list');

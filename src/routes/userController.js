@@ -3,6 +3,7 @@ const User = require('../models/User');
 const router = express.Router();
 
 // Ruta para la página de inicio de sesión
+
 router.get('/login', (req, res) => {
   res.render('login');
 });
@@ -13,9 +14,9 @@ router.post('/login', async (req, res) => {
 
   try {
     const user = await User.findOne({ username });
-
     if (!user || user.password !== password) {
       return res.status(400).send('El nombre de usuario o la contraseña son incorrectos');
+      
     }
 
     // Aquí puedes agregar el manejo de sesiones y autenticación (por ejemplo, con Passport.js)
